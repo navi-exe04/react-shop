@@ -6,7 +6,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     mode: 'development',
     resolve: {
@@ -30,7 +31,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(css|scss)$/,
+                test: /\.(css|s[ac]ss)$/i,
                 use: [
                     "style-loader",
                     "css-loader",
@@ -54,5 +55,6 @@ module.exports = {
         },
         compress: true, 
         port: 3005,
+        historyApiFallback: true,
     }
 }
