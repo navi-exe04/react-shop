@@ -1,17 +1,28 @@
-import React from 'react';
-import '../styles/ProductItem.scss';
+import React, {useContext} from 'react';
+import '@styles/ProductItem.scss';
+import  addToCartSVG from '@icons/bt_add_to_cart.svg';
+import AppContext from '../context/AppContext';
 
-const ProductItem = () => {
+const ProductItem = ({product}) => {
+
+	//const [cart, setCart] = useState(['']); //Se añade un valor inicial para la constante
+
+	const {addToCart} = useContext(AppContext);
+
+	const handleClick = (item) => { //Se define el proceso para un evento
+		addToCart(item); //cuando se de clic, la const cart tendra el valor de Hola mundo!
+	}
+
 	return (
 		<div className="ProductItem">
-			<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
+			<img src={product.images[0]} alt={product.title} />
 			<div className="product-info">
 				<div>
-					<p>$120,00</p>
-					<p>Bike</p>
+					<p>${product.price}</p>
+					<p>{product.title}</p>
 				</div>
-				<figure>
-					<img src="./icons/bt_add_to_cart.svg" alt="" />
+				<figure onClick={() => handleClick(product)}> {/*Se llama a la funcion cuando ocurre el evento*/}
+					<img src={addToCartSVG} alt="" />
 				</figure>
 			</div>
 		</div>

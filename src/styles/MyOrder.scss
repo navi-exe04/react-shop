@@ -6,6 +6,15 @@
 	box-sizing: border-box;
 	position: absolute;
 	right: 0;
+	background-color: white;
+	top: 60px;
+	bottom: 0;
+	border-radius: 6px;
+	border: 1px solid var(--very-light-pink);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-o-border-radius: 6px;
 }
 .title-container {
 	display: flex;
